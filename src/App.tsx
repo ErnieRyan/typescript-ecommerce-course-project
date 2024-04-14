@@ -9,7 +9,7 @@ const App = () => {
         size={"lg"}
         onClick={() => console.log("it worked!!!")}
       >
-        Click Me
+        Click Mes
       </Button>
     </div>
   );
