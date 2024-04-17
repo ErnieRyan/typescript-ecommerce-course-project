@@ -1,4 +1,11 @@
+import { Hero, FeaturedProducts } from "@/components";
+
 const Landing = () => {
-  return <h1 className="text-4xl">Landing</h1>;
+  return (
+    <>
+      <Hero />
+      <FeaturedProducts />
+    </>
+  );
 };
 export default Landing;
