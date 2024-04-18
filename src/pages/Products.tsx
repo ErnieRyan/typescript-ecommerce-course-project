@@ -1,9 +1,4 @@
-import {
-  Filters,
-  ProductsContainer,
-  PaginationContainer,
-  ProductContainer,
-} from "@/components";
+import { Filters, ProductsContainer, PaginationContainer } from "@/components";
 import { customFetch, type ProductsResponse } from "../utils";
 import { type LoaderFunction } from "react-router-dom";
 
@@ -18,7 +13,7 @@ const Products = () => {
   return (
     <>
       <Filters />
-      <ProductContainer />
+      <ProductsContainer />
       <PaginationContainer />
     </>
   );
