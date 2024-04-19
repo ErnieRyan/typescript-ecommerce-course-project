@@ -16,3 +16,5 @@ export { default as ProductsContainer } from "./ProductsContainer";
 export { default as PaginationContainer } from "./PaginationContainer";
 export { default as ProductList } from "./ProductList";
 export { default as Loading } from "./Loading";
+export { default as FormInput } from "./FormInput";
+export { default as FormSelect } from "./FormSelect";
