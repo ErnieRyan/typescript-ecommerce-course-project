@@ -1,6 +1,6 @@
 import { Form, useLoaderData, Link } from "react-router-dom";
 import { Button } from "./ui/button";
-import { FormInput, FormSelect } from ".";
+import { FormInput, FormSelect, FormRange, FormCheckbox } from ".";
 import { type ProductsResponseWithParams } from "@/utils";
 
 const Filters = () => {
@@ -31,10 +31,18 @@ const Filters = () => {
       />
       {/* ORDER */}
       <FormSelect
-        label="select order"
-        options={meta.categories}
+        label="order by"
+        options={["a-z", "z-a", "high", "low"]}
         name="order"
         defaultValue={order}
+      />
+      {/* PRICE */}
+      <FormRange label="price" name="price" defaultValue={price} />
+      {/* SHIPPING */}
+      <FormCheckbox
+        label="free shipping"
+        name="shipping"
+        defaultValue={shipping}
       />
       <Button type="submit" size="sm" className="self-end mb-2">
         Search

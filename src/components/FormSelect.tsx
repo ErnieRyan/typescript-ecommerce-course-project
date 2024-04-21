@@ -32,7 +32,7 @@ const FormSelect = ({
         <SelectContent>
           {options.map((item) => {
             return (
-              <SelectItem key={item} value="{item}">
+              <SelectItem key={item} value={item}>
                 {item}
               </SelectItem>
             );

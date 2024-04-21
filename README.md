@@ -46,7 +46,7 @@ tailwind.config.js
 ```js
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
@@ -66,7 +66,7 @@ index.css
 
 ```tsx
 function App() {
-  return <h1 className='text-7xl font-bold '>App</h1>;
+  return <h1 className="text-7xl font-bold ">App</h1>;
 }
 export default App;
 ```
@@ -101,15 +101,15 @@ npm i -D @types/node
 vite.config.ts
 
 ```ts
-import path from 'path';
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import path from "path";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });
@@ -127,16 +127,16 @@ npx shadcn-ui@latest add button
 - restart server
 
 ```tsx
-import { Button } from './components/ui/button';
+import { Button } from "./components/ui/button";
 
 function App() {
   return (
     <div>
-      <h1 className='text-7xl font-bold '>App</h1>
+      <h1 className="text-7xl font-bold ">App</h1>
       <Button
-        variant='destructive'
-        size='lg'
-        onClick={() => console.log('it worked!!!')}
+        variant="destructive"
+        size="lg"
+        onClick={() => console.log("it worked!!!")}
       >
         Click Me
       </Button>
@@ -170,13 +170,13 @@ npm install @reduxjs/toolkit react-redux
   - user/userSlice.ts
 
 ```ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: 'user slice',
+  name: "user slice",
 };
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {},
 });
@@ -187,10 +187,10 @@ export default userSlice.reducer;
 - create src/store.ts
 
 ```ts
-import { configureStore } from '@reduxjs/toolkit';
-import themeReducer from './features/theme/themeSlice';
-import cartReducer from './features/cart/cartSlice';
-import userReducer from './features/user/userSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import themeReducer from "./features/theme/themeSlice";
+import cartReducer from "./features/cart/cartSlice";
+import userReducer from "./features/user/userSlice";
 // ...
 
 export const store = configureStore({
@@ -213,9 +213,9 @@ export type ReduxStore = {
 - create hooks.ts
 
 ```ts
-import { useDispatch, useSelector } from 'react-redux';
-import type { TypedUseSelectorHook } from 'react-redux';
-import type { RootState, AppDispatch } from './store';
+import { useDispatch, useSelector } from "react-redux";
+import type { TypedUseSelectorHook } from "react-redux";
+import type { RootState, AppDispatch } from "./store";
 
 // Use throughout your app instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch: () => AppDispatch = useDispatch;
@@ -227,15 +227,15 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 main.tsx
 
 ```tsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
 
-import { store } from './store';
-import { Provider } from 'react-redux';
+import { store } from "./store";
+import { Provider } from "react-redux";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <App />
   </Provider>
@@ -243,7 +243,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 ```
 
 ```tsx
-import { useAppSelector } from './hooks';
+import { useAppSelector } from "./hooks";
 function App() {
   const { name } = useAppSelector((state) => state.userState);
   console.log(name);
@@ -269,7 +269,7 @@ function App() {
 
   ```tsx
   function About() {
-    return <h1 className='text-4xl'>About Page</h1>;
+    return <h1 className="text-4xl">About Page</h1>;
   }
   export default About;
   ```
@@ -277,17 +277,17 @@ function App() {
   index.ts
 
   ```ts
-  export { default as HomeLayout } from './HomeLayout';
-  export { default as Landing } from './Landing';
-  export { default as SingleProduct } from './SingleProduct';
-  export { default as Products } from './Products';
-  export { default as Cart } from './Cart';
-  export { default as Error } from './Error';
-  export { default as About } from './About';
-  export { default as Login } from './Login';
-  export { default as Register } from './Register';
-  export { default as Checkout } from './Checkout';
-  export { default as Orders } from './Orders';
+  export { default as HomeLayout } from "./HomeLayout";
+  export { default as Landing } from "./Landing";
+  export { default as SingleProduct } from "./SingleProduct";
+  export { default as Products } from "./Products";
+  export { default as Cart } from "./Cart";
+  export { default as Error } from "./Error";
+  export { default as About } from "./About";
+  export { default as Login } from "./Login";
+  export { default as Register } from "./Register";
+  export { default as Checkout } from "./Checkout";
+  export { default as Orders } from "./Orders";
   ```
 
   It's taking the default export from the 'About' module and giving it a name of 'About'.
@@ -307,21 +307,21 @@ import {
   Login,
   Checkout,
   Orders,
-} from './pages';
+} from "./pages";
 
-import { Button } from './components/ui/button';
-import { useAppSelector } from './hooks';
+import { Button } from "./components/ui/button";
+import { useAppSelector } from "./hooks";
 function App() {
   const { name } = useAppSelector((state) => state.userState);
   console.log(name);
 
   return (
     <div>
-      <h1 className='text-7xl font-bold '>App</h1>
+      <h1 className="text-7xl font-bold ">App</h1>
       <Button
-        variant='destructive'
-        size='lg'
-        onClick={() => console.log('it worked!!!')}
+        variant="destructive"
+        size="lg"
+        onClick={() => console.log("it worked!!!")}
       >
         Click Me
       </Button>
@@ -343,15 +343,15 @@ npm i react-router-dom
 App.tsx
 
 ```tsx
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Landing />,
   },
   {
-    path: '/cart',
+    path: "/cart",
     element: <Cart />,
   },
 ]);
@@ -367,17 +367,17 @@ export default App;
 Cart.tsx
 
 ```tsx
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 function Cart() {
   return (
     <div>
-      <h1 className='text-4xl'>Cart Page</h1>
-      <Link to='/' className='text-7xl text-red-900'>
+      <h1 className="text-4xl">Cart Page</h1>
+      <Link to="/" className="text-7xl text-red-900">
         back home
       </Link>
-      <Button asChild size='lg'>
-        <Link to='/'>home button</Link>
+      <Button asChild size="lg">
+        <Link to="/">home button</Link>
       </Button>
     </div>
   );
@@ -392,7 +392,7 @@ App.tsx
 ```tsx
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <HomeLayout />,
 
     children: [
@@ -401,34 +401,34 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
-        path: 'products',
+        path: "products",
         element: <Products />,
       },
       {
-        path: 'products/:id',
+        path: "products/:id",
         element: <SingleProduct />,
       },
       {
-        path: 'cart',
+        path: "cart",
         element: <Cart />,
       },
-      { path: 'about', element: <About /> },
+      { path: "about", element: <About /> },
       {
-        path: 'checkout',
+        path: "checkout",
         element: <Checkout />,
       },
       {
-        path: 'orders',
+        path: "orders",
         element: <Orders />,
       },
     ],
   },
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/register',
+    path: "/register",
     element: <Register />,
   },
 ]);
@@ -437,7 +437,7 @@ const router = createBrowserRouter([
 HomeLayout.tsx
 
 ```tsx
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
 const HomeLayout = () => {
   return (
@@ -457,46 +457,46 @@ export default HomeLayout;
 - create components/index.ts(optional)
 
 ```ts
-export { default as Header } from './Header';
+export { default as Header } from "./Header";
 ```
 
 - render in HomeLayout
 
 ```tsx
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from './ui/button';
-import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import { useState } from "react";
 const Header = () => {
   const navigate = useNavigate();
 
   // temp
   const [user, setUser] = useState<{ username: string } | null>({
-    username: 'demo user',
+    username: "demo user",
   });
 
   const handleLogout = () => {
-    navigate('/');
+    navigate("/");
     setUser(null);
   };
 
   return (
     <header>
-      <div className='align-element flex justify-center sm:justify-end py-2'>
+      <div className="align-element flex justify-center sm:justify-end py-2">
         {/* USER */}
         {user ? (
-          <div className='flex gap-x-2 sm:gap-x-8 items-center'>
-            <p className='text-xs sm:text-sm'>Hello, {user.username}</p>
-            <Button variant='link' size='sm' onClick={handleLogout}>
+          <div className="flex gap-x-2 sm:gap-x-8 items-center">
+            <p className="text-xs sm:text-sm">Hello, {user.username}</p>
+            <Button variant="link" size="sm" onClick={handleLogout}>
               Logout
             </Button>
           </div>
         ) : (
-          <div className='flex gap-x-6 justify-center items-center -mr-4'>
-            <Button asChild variant='link' size='sm'>
-              <Link to='/login'>Sign in / Guest</Link>
+          <div className="flex gap-x-6 justify-center items-center -mr-4">
+            <Button asChild variant="link" size="sm">
+              <Link to="/login">Sign in / Guest</Link>
             </Button>
-            <Button asChild variant='link' size='sm'>
-              <Link to='/register'>Register</Link>
+            <Button asChild variant="link" size="sm">
+              <Link to="/register">Register</Link>
             </Button>
           </div>
         )}
@@ -522,7 +522,7 @@ index.css
 HomeLayout.tsx
 
 ```tsx
-<div className='align-element py-20'>
+<div className="align-element py-20">
   <Outlet />
 </div>
 ```
@@ -530,7 +530,7 @@ HomeLayout.tsx
 Header.tsx
 
 ```tsx
-<div className='align-element flex ......'>...</div>
+<div className="align-element flex ......">...</div>
 ```
 
 ## Navbar
@@ -540,20 +540,20 @@ Header.tsx
 - render navbar in the HomeLayout
 
 ```tsx
-import CartButton from './CartButton';
-import LinksDropdown from './LinksDropdown';
-import Logo from './Logo';
-import ModeToggle from './ModeToggle';
-import NavLinks from './NavLinks';
+import CartButton from "./CartButton";
+import LinksDropdown from "./LinksDropdown";
+import Logo from "./Logo";
+import ModeToggle from "./ModeToggle";
+import NavLinks from "./NavLinks";
 
 const Navbar = () => {
   return (
-    <nav className='bg-muted py-4'>
-      <div className='align-element flex justify-between items-center'>
+    <nav className="bg-muted py-4">
+      <div className="align-element flex justify-between items-center">
         <Logo />
         <LinksDropdown />
         <NavLinks />
-        <div className='flex justify-center items-center gap-x-4'>
+        <div className="flex justify-center items-center gap-x-4">
           <ModeToggle />
           <CartButton />
         </div>
@@ -572,16 +572,16 @@ export default Navbar;
 Logo.tsx
 
 ```tsx
-import { Link } from 'react-router-dom';
-import { Armchair } from 'lucide-react';
+import { Link } from "react-router-dom";
+import { Armchair } from "lucide-react";
 
 function Logo() {
   return (
     <Link
-      to='/'
-      className='hidden lg:flex justify-center items-center bg-primary p-2 rounded-lg text-white '
+      to="/"
+      className="hidden lg:flex justify-center items-center bg-primary p-2 rounded-lg text-white "
     >
-      <Armchair className='w-8 h-8' />
+      <Armchair className="w-8 h-8" />
     </Link>
   );
 }
@@ -603,19 +603,19 @@ type Link = {
 };
 
 export const links: Link[] = [
-  { href: '/', label: 'home' },
-  { href: 'about', label: 'about' },
-  { href: 'products', label: 'products' },
-  { href: 'cart', label: 'cart' },
-  { href: 'checkout', label: 'checkout' },
-  { href: 'orders', label: 'orders' },
+  { href: "/", label: "home" },
+  { href: "about", label: "about" },
+  { href: "products", label: "products" },
+  { href: "cart", label: "cart" },
+  { href: "checkout", label: "checkout" },
+  { href: "orders", label: "orders" },
 ];
 ```
 
 index.ts
 
 ```ts
-export * from './links';
+export * from "./links";
 ```
 
 ## DropdownMenu Component - Shadcn
@@ -634,25 +634,25 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { AlignLeft } from 'lucide-react';
-import { Button } from './ui/button';
-import { links } from '@/utils';
-import { NavLink } from 'react-router-dom';
+} from "@/components/ui/dropdown-menu";
+import { AlignLeft } from "lucide-react";
+import { Button } from "./ui/button";
+import { links } from "@/utils";
+import { NavLink } from "react-router-dom";
 
 function LinksDropdown() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className='lg:hidden'>
-        <Button variant='outline' size='icon'>
+      <DropdownMenuTrigger asChild className="lg:hidden">
+        <Button variant="outline" size="icon">
           <AlignLeft />
 
-          <span className='sr-only'>Toggle links</span>
+          <span className="sr-only">Toggle links</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className='w-52 lg:hidden '
-        align='start'
+        className="w-52 lg:hidden "
+        align="start"
         sideOffset={25}
       >
         {links.map((link) => {
@@ -661,7 +661,7 @@ function LinksDropdown() {
               <NavLink
                 to={link.href}
                 className={({ isActive }) => {
-                  return `capitalize w-full ${isActive ? 'text-primary' : ''}`;
+                  return `capitalize w-full ${isActive ? "text-primary" : ""}`;
                 }}
               >
                 {link.label}
@@ -679,19 +679,19 @@ export default LinksDropdown;
 ## NavLinks
 
 ```tsx
-import { links } from '@/utils';
-import { NavLink } from 'react-router-dom';
+import { links } from "@/utils";
+import { NavLink } from "react-router-dom";
 
 function NavLinks() {
   return (
-    <div className='hidden lg:flex justify-center items-center gap-x-4'>
+    <div className="hidden lg:flex justify-center items-center gap-x-4">
       {links.map((link) => {
         return (
           <NavLink
             to={link.href}
             className={({ isActive }) => {
               return `capitalize font-light tracking-wide ${
-                isActive ? 'text-primary' : ''
+                isActive ? "text-primary" : ""
               }`;
             }}
             key={link.label}
@@ -722,25 +722,25 @@ export default NavLinks;
 - setup Theme in features/theme/themeSlice.ts
 
 ```ts
-export type Theme = 'dark' | 'light' | 'system';
+export type Theme = "dark" | "light" | "system";
 ```
 
 - create utils/applyTheme
 - setup export
 
 ```ts
-import { type Theme } from '@/features/theme/themeSlice';
+import { type Theme } from "@/features/theme/themeSlice";
 
 export function applyTheme(theme: Theme) {
   const root = window.document.documentElement;
 
-  root.classList.remove('light', 'dark');
+  root.classList.remove("light", "dark");
 
-  if (theme === 'system') {
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+  if (theme === "system") {
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
       .matches
-      ? 'dark'
-      : 'light';
+      ? "dark"
+      : "light";
 
     root.classList.add(systemTheme);
     return;
@@ -753,16 +753,16 @@ export function applyTheme(theme: Theme) {
 ## ThemeSlice
 
 ```ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { applyTheme } from '@/utils';
-export type Theme = 'dark' | 'light' | 'system';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { applyTheme } from "@/utils";
+export type Theme = "dark" | "light" | "system";
 
 type ThemeState = {
   theme: Theme;
 };
 
 const initializeTheme = (): Theme => {
-  const theme = (localStorage.getItem('theme') as Theme) || 'system';
+  const theme = (localStorage.getItem("theme") as Theme) || "system";
   applyTheme(theme);
   return theme;
 };
@@ -772,13 +772,13 @@ const initialState: ThemeState = {
 };
 
 const themeSlice = createSlice({
-  name: 'theme',
+  name: "theme",
   initialState,
   reducers: {
     setTheme: (state, action: PayloadAction<Theme>) => {
       state.theme = action.payload;
       applyTheme(action.payload);
-      localStorage.setItem('theme', action.payload);
+      localStorage.setItem("theme", action.payload);
     },
   },
 });
@@ -791,16 +791,16 @@ export default themeSlice.reducer;
 ## ModeToggle
 
 ```tsx
-import { Moon, Sun } from 'lucide-react';
-import { useAppDispatch } from '@/hooks';
-import { Button } from '@/components/ui/button';
+import { Moon, Sun } from "lucide-react";
+import { useAppDispatch } from "@/hooks";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { setTheme } from '@/features/theme/themeSlice';
+} from "@/components/ui/dropdown-menu";
+import { setTheme } from "@/features/theme/themeSlice";
 
 function ModeToggle() {
   const dispatch = useAppDispatch();
@@ -808,20 +808,20 @@ function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant='outline' size='icon'>
-          <Sun className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
-          <Moon className='absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100' />
-          <span className='sr-only'>Toggle theme</span>
+        <Button variant="outline" size="icon">
+          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
-        <DropdownMenuItem onClick={() => dispatch(setTheme('light'))}>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => dispatch(setTheme("light"))}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => dispatch(setTheme('dark'))}>
+        <DropdownMenuItem onClick={() => dispatch(setTheme("dark"))}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => dispatch(setTheme('system'))}>
+        <DropdownMenuItem onClick={() => dispatch(setTheme("system"))}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -835,9 +835,9 @@ export default ModeToggle;
 ## CartButton
 
 ```tsx
-import { Button } from './ui/button';
-import { ShoppingCart } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Button } from "./ui/button";
+import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function CartButton() {
   const numItemsInCart = 5;
@@ -845,13 +845,13 @@ function CartButton() {
   return (
     <Button
       asChild
-      variant='outline'
-      size='icon'
-      className='flex justify-center items-center relative'
+      variant="outline"
+      size="icon"
+      className="flex justify-center items-center relative"
     >
-      <Link to='/cart'>
+      <Link to="/cart">
         <ShoppingCart />
-        <span className='absolute -top-3 -right-3 bg-primary text-white rounded-full h-6 w-6 flex items-center justify-center text-xs'>
+        <span className="absolute -top-3 -right-3 bg-primary text-white rounded-full h-6 w-6 flex items-center justify-center text-xs">
           {numItemsInCart}
         </span>
       </Link>
@@ -864,8 +864,8 @@ export default CartButton;
 ## Error Page
 
 ```tsx
-import { useRouteError, Link, isRouteErrorResponse } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { useRouteError, Link, isRouteErrorResponse } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Error = () => {
   // type:unknown
@@ -873,18 +873,18 @@ const Error = () => {
   console.log(error);
   if (isRouteErrorResponse(error) && error.status === 404) {
     return (
-      <main className='grid min-h-[100vh] place-items-center px-8 '>
-        <div className='text-center'>
-          <p className='text-9xl font-semibold text-primary'>404</p>
-          <h1 className='mt-4 text-3xl font-bold tracking-tight sm:text-5xl'>
+      <main className="grid min-h-[100vh] place-items-center px-8 ">
+        <div className="text-center">
+          <p className="text-9xl font-semibold text-primary">404</p>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
             Page not found
           </h1>
-          <p className='mt-6 text-lg leading-7'>
+          <p className="mt-6 text-lg leading-7">
             Sorry, we couldn’t find the page you’re looking for.
           </p>
-          <div className='mt-10 '>
-            <Button asChild size='lg' variant='secondary'>
-              <Link to='/'>Go back home</Link>
+          <div className="mt-10 ">
+            <Button asChild size="lg" variant="secondary">
+              <Link to="/">Go back home</Link>
             </Button>
           </div>
         </div>
@@ -893,8 +893,8 @@ const Error = () => {
   }
 
   return (
-    <main className='grid min-h-[100vh] place-items-center px-8 '>
-      <h4 className='text-center font-bold text-4xl'>there was an error... </h4>
+    <main className="grid min-h-[100vh] place-items-center px-8 ">
+      <h4 className="text-center font-bold text-4xl">there was an error... </h4>
     </main>
   );
 };
@@ -927,14 +927,14 @@ App.tsx
 function About() {
   return (
     <section>
-      <h1 className='flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center text-4xl font-bold leading-none tracking-tight sm:text-6xl '>
+      <h1 className="flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center text-4xl font-bold leading-none tracking-tight sm:text-6xl ">
         We love
-        <span className='bg-primary py-2 px-4 rounded-lg  tracking-widest text-white'>
+        <span className="bg-primary py-2 px-4 rounded-lg  tracking-widest text-white">
           comfy
         </span>
       </h1>
 
-      <p className='mt-6 text-lg tracking-wide leading-8 max-w-2xl mx-auto'>
+      <p className="mt-6 text-lg tracking-wide leading-8 max-w-2xl mx-auto">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic veniam
         odit, officiis eos mollitia alias, doloremque, aspernatur ratione
         asperiores voluptas labore minus dolores reprehenderit corporis quos.
@@ -952,12 +952,12 @@ export default About;
 - setup export
 
 ```tsx
-import { useRouteError } from 'react-router-dom';
+import { useRouteError } from "react-router-dom";
 const ErrorElement = () => {
   const error = useRouteError();
   console.log(error);
 
-  return <h4 className='font-bold text-4xl'>there was an error... </h4>;
+  return <h4 className="font-bold text-4xl">there was an error... </h4>;
 };
 export default ErrorElement;
 ```
@@ -981,7 +981,7 @@ App.tsx
 Landing.tsx
 
 ```tsx
-import { Hero, FeaturedProducts } from '@/components';
+import { Hero, FeaturedProducts } from "@/components";
 
 function Landing() {
   return (
@@ -1001,9 +1001,9 @@ export default Landing;
 - [API DOCS](https://documenter.getpostman.com/view/18152321/2s9Xy5KpTi)
 
 ```ts
-import axios from 'axios';
+import axios from "axios";
 
-const productionUrl = 'https://strapi-store-server.onrender.com/api';
+const productionUrl = "https://strapi-store-server.onrender.com/api";
 
 export const customFetch = axios.create({
   baseURL: productionUrl,
@@ -1071,11 +1071,11 @@ Loaders in React Router are functions that handle the loading of data or compone
 ## Landing Loader
 
 ```tsx
-import { FeaturedProducts, Hero } from '@/components';
-import { customFetch, type ProductsResponse } from '@/utils';
-import { useLoaderData, type LoaderFunction } from 'react-router-dom';
+import { FeaturedProducts, Hero } from "@/components";
+import { customFetch, type ProductsResponse } from "@/utils";
+import { useLoaderData, type LoaderFunction } from "react-router-dom";
 
-const url = '/products?featured=true';
+const url = "/products?featured=true";
 
 export const loader: LoaderFunction = async (): Promise<ProductsResponse> => {
   const response = await customFetch<ProductsResponse>(url);
@@ -1118,12 +1118,12 @@ npx shadcn-ui@latest add separator
 ## SectionTitle
 
 ```tsx
-import { Separator } from '@/components/ui/separator';
+import { Separator } from "@/components/ui/separator";
 
 const SectionTitle = ({ text }: { text: string }) => {
   return (
     <div>
-      <h2 className='text-3xl font-medium tracking-wider capitalize mb-8'>
+      <h2 className="text-3xl font-medium tracking-wider capitalize mb-8">
         {text}
       </h2>
       <Separator />
@@ -1136,12 +1136,12 @@ export default SectionTitle;
 ## FeaturedProducts
 
 ```tsx
-import ProductsGrid from './ProductsGrid';
-import SectionTitle from './SectionTitle';
+import ProductsGrid from "./ProductsGrid";
+import SectionTitle from "./SectionTitle";
 const FeaturedProducts = () => {
   return (
-    <section className='pt-24 '>
-      <SectionTitle text='featured products' />
+    <section className="pt-24 ">
+      <SectionTitle text="featured products" />
       <ProductsGrid />
     </section>
   );
@@ -1155,9 +1155,9 @@ export default FeaturedProducts;
 
 ```ts
 export const formatAsDollars = (price: string | number): string => {
-  const dollarsAmount = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const dollarsAmount = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   }).format(Number(price) / 100);
   return dollarsAmount;
 };
@@ -1175,14 +1175,14 @@ npx shadcn-ui@latest add card
 ## ProductsGrid
 
 ```tsx
-import { Link, useLoaderData } from 'react-router-dom';
-import { Card, CardContent } from '@/components/ui/card';
-import { formatAsDollars, ProductsResponse } from '@/utils';
+import { Link, useLoaderData } from "react-router-dom";
+import { Card, CardContent } from "@/components/ui/card";
+import { formatAsDollars, ProductsResponse } from "@/utils";
 const ProductsGrid = () => {
   const { data: products } = useLoaderData() as ProductsResponse;
 
   return (
-    <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 '>
+    <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 ">
       {products.map((product) => {
         const { title, price, image } = product.attributes;
         const dollarsAmount = formatAsDollars(price);
@@ -1190,15 +1190,15 @@ const ProductsGrid = () => {
         return (
           <Link to={`/products/${product.id}`} key={product.id}>
             <Card>
-              <CardContent className='p-4'>
+              <CardContent className="p-4">
                 <img
                   src={image}
                   alt={title}
-                  className='rounded-md h-64 md:h-48 w-full object-cover'
+                  className="rounded-md h-64 md:h-48 w-full object-cover"
                 />
-                <div className='mt-4 text-center'>
-                  <h2 className='text-xl font-semibold capitalize'>{title}</h2>
-                  <p className='text-primary font-light mt-2'>
+                <div className="mt-4 text-center">
+                  <h2 className="text-xl font-semibold capitalize">{title}</h2>
+                  <p className="text-primary font-light mt-2">
                     {dollarsAmount}
                   </p>
                 </div>
@@ -1216,26 +1216,26 @@ export default ProductsGrid;
 ## Hero
 
 ```tsx
-import { Link } from 'react-router-dom';
-import { Button } from './ui/button';
-import HeroCarousel from './HeroCarousel';
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
+import HeroCarousel from "./HeroCarousel";
 const Hero = () => {
   return (
-    <section className=' grid grid-cols-1 lg:grid-cols-2 gap-24 items-center'>
+    <section className=" grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
       <div>
-        <h1 className='max-w-2xl text-4xl font-bold tracking-tight  sm:text-6xl '>
+        <h1 className="max-w-2xl text-4xl font-bold tracking-tight  sm:text-6xl ">
           We’re changing the way people shop.
         </h1>
 
-        <p className='mt-8 max-w-xl text-lg leading-8'>
+        <p className="mt-8 max-w-xl text-lg leading-8">
           Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
           cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
           aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
           qui lorem cupidatat commodo.
         </p>
 
-        <Button asChild size='lg' className='mt-10'>
-          <Link to='/products'>Our Products</Link>
+        <Button asChild size="lg" className="mt-10">
+          <Link to="/products">Our Products</Link>
         </Button>
       </div>
       {/* hero carousel */}
@@ -1266,29 +1266,29 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/carousel';
-import { Card, CardContent } from '@/components/ui/card';
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
 
-import hero1 from '../assets/hero1.webp';
-import hero2 from '../assets/hero2.webp';
-import hero3 from '../assets/hero3.webp';
-import hero4 from '../assets/hero4.webp';
+import hero1 from "../assets/hero1.webp";
+import hero2 from "../assets/hero2.webp";
+import hero3 from "../assets/hero3.webp";
+import hero4 from "../assets/hero4.webp";
 
 const carouselImages = [hero1, hero2, hero3, hero4];
 
 function HeroCarousel() {
   return (
-    <div className='hidden lg:block'>
+    <div className="hidden lg:block">
       <Carousel>
         <CarouselContent>
           {carouselImages.map((image, index) => (
             <CarouselItem key={index}>
               <Card>
-                <CardContent className='p-2'>
+                <CardContent className="p-2">
                   <img
                     src={image}
-                    alt='hero'
-                    className='w-full h-[24rem]  rounded-md object-cover'
+                    alt="hero"
+                    className="w-full h-[24rem]  rounded-md object-cover"
                   />
                 </CardContent>
               </Card>
@@ -1319,11 +1319,11 @@ export default HeroCarousel;
 - don't forget to import and setup loader in the App.tsx
 
 ```tsx
-import { Filters, ProductsContainer, PaginationContainer } from '@/components';
-import { customFetch, type ProductsResponse } from '../utils';
-import { type LoaderFunction } from 'react-router-dom';
+import { Filters, ProductsContainer, PaginationContainer } from "@/components";
+import { customFetch, type ProductsResponse } from "../utils";
+import { type LoaderFunction } from "react-router-dom";
 
-const url = '/products';
+const url = "/products";
 
 export const loader: LoaderFunction = async (): Promise<ProductsResponse> => {
   const response = await customFetch<ProductsResponse>(url);
@@ -1346,13 +1346,13 @@ export default Products;
 ## ProductsList
 
 ```tsx
-import { formatAsDollars, type ProductsResponse } from '@/utils';
-import { Link, useLoaderData } from 'react-router-dom';
-import { Card, CardContent } from './ui/card';
+import { formatAsDollars, type ProductsResponse } from "@/utils";
+import { Link, useLoaderData } from "react-router-dom";
+import { Card, CardContent } from "./ui/card";
 const ProductList = () => {
   const { data: products } = useLoaderData() as ProductsResponse;
   return (
-    <div className='mt-12 grid gap-y-8'>
+    <div className="mt-12 grid gap-y-8">
       {products.map((product) => {
         const { title, price, image, company } = product.attributes;
         const dollarsAmount = formatAsDollars(price);
@@ -1360,17 +1360,17 @@ const ProductList = () => {
         return (
           <Link key={product.id} to={`/products/${product.id}`}>
             <Card>
-              <CardContent className='p-8 gap-y-4 grid md:grid-cols-3 '>
+              <CardContent className="p-8 gap-y-4 grid md:grid-cols-3 ">
                 <img
                   src={image}
                   alt={title}
-                  className='h-64 w-full md:h-48  md:w-48  rounded-md object-cover'
+                  className="h-64 w-full md:h-48  md:w-48  rounded-md object-cover"
                 />
                 <div>
-                  <h2 className='text-xl font-semibold capitalize'>{title}</h2>
+                  <h2 className="text-xl font-semibold capitalize">{title}</h2>
                   <h4>{company}</h4>
                 </div>
-                <p className='text-primary md:ml-auto'>{dollarsAmount}</p>
+                <p className="text-primary md:ml-auto">{dollarsAmount}</p>
               </CardContent>
             </Card>
           </Link>
@@ -1386,55 +1386,55 @@ export default ProductList;
 ## ProductsContainer
 
 ```tsx
-import { useLoaderData } from 'react-router-dom';
-import ProductsGrid from './ProductsGrid';
-import ProductsList from './ProductsList';
-import { useState } from 'react';
-import { LayoutGrid, List } from 'lucide-react';
-import { ProductsResponse } from '@/utils';
-import { Button } from './ui/button';
-import { Separator } from './ui/separator';
+import { useLoaderData } from "react-router-dom";
+import ProductsGrid from "./ProductsGrid";
+import ProductsList from "./ProductsList";
+import { useState } from "react";
+import { LayoutGrid, List } from "lucide-react";
+import { ProductsResponse } from "@/utils";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
 const ProductsContainer = () => {
   const { meta } = useLoaderData() as ProductsResponse;
   const totalProducts = meta.pagination.total;
-  const [layout, setLayout] = useState<'grid' | 'list'>('grid');
+  const [layout, setLayout] = useState<"grid" | "list">("grid");
 
   return (
     <>
       {/* HEADER */}
       <section>
-        <div className='flex justify-between items-center mt-8 '>
-          <h4 className='font-medium text-md'>
-            {totalProducts} product{totalProducts > 1 && 's'}
+        <div className="flex justify-between items-center mt-8 ">
+          <h4 className="font-medium text-md">
+            {totalProducts} product{totalProducts > 1 && "s"}
           </h4>
-          <div className='flex gap-x-4'>
+          <div className="flex gap-x-4">
             <Button
-              onClick={() => setLayout('grid')}
-              variant={layout === 'grid' ? 'default' : 'ghost'}
-              size='icon'
+              onClick={() => setLayout("grid")}
+              variant={layout === "grid" ? "default" : "ghost"}
+              size="icon"
             >
               <LayoutGrid />
             </Button>
             <Button
-              onClick={() => setLayout('list')}
-              size='icon'
-              variant={layout === 'list' ? 'default' : 'ghost'}
+              onClick={() => setLayout("list")}
+              size="icon"
+              variant={layout === "list" ? "default" : "ghost"}
             >
               <List />
             </Button>
           </div>
         </div>
-        <Separator className='mt-4' />
+        <Separator className="mt-4" />
       </section>
 
       {/* PRODUCTS */}
       <div>
         {totalProducts === 0 ? (
-          <h5 className='text-2xl mt-16'>
+          <h5 className="text-2xl mt-16">
             Sorry, no products matched your search...
           </h5>
-        ) : layout === 'grid' ? (
+        ) : layout === "grid" ? (
           <ProductsGrid />
         ) : (
           <ProductsList />
@@ -1460,18 +1460,18 @@ npx shadcn-ui@latest add skeleton
 - create components/Loading.tsx
 
 ```tsx
-import { Skeleton } from './ui/skeleton';
+import { Skeleton } from "./ui/skeleton";
 
 function Loading() {
   return (
-    <div className='pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 '>
+    <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3 ">
       {Array.from({ length: 3 }).map((_, index) => {
         return (
-          <div key={index} className='flex flex-col space-y-3'>
-            <Skeleton className='h-[125px] w-full rounded-xl' />
-            <div className='space-y-2'>
-              <Skeleton className='h-4 mx-auto w-[250px]' />
-              <Skeleton className='h-4 mx-auto w-[200px]' />
+          <div key={index} className="flex flex-col space-y-3">
+            <Skeleton className="h-[125px] w-full rounded-xl" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 mx-auto w-[250px]" />
+              <Skeleton className="h-4 mx-auto w-[200px]" />
             </div>
           </div>
         );
@@ -1487,18 +1487,18 @@ export default Loading;
 HomeLayout.tsx
 
 ```tsx
-import { Outlet, useNavigation } from 'react-router-dom';
-import { Header, Navbar, Loading } from '@/components';
+import { Outlet, useNavigation } from "react-router-dom";
+import { Header, Navbar, Loading } from "@/components";
 
 const HomeLayout = () => {
   const navigation = useNavigation();
-  const isPageLoading = navigation.state === 'loading';
+  const isPageLoading = navigation.state === "loading";
   return (
     <>
       <Header />
       <Navbar />
 
-      <div className='align-element py-20'>
+      <div className="align-element py-20">
         {isPageLoading ? <Loading /> : <Outlet />}
       </div>
     </>
@@ -1520,29 +1520,29 @@ npx shadcn-ui@latest add label input select slider checkbox
 ## Filters - Initial Setup
 
 ```tsx
-import { Form, useLoaderData, Link } from 'react-router-dom';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Button } from './ui/button';
+import { Form, useLoaderData, Link } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "./ui/button";
 
 function Filters() {
   return (
-    <Form className='border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
-      <div className='mb-2'>
-        <Label htmlFor='search'>Search Product</Label>
-        <Input id='search' name='search' type='text' defaultValue='' />
+    <Form className="border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center">
+      <div className="mb-2">
+        <Label htmlFor="search">Search Product</Label>
+        <Input id="search" name="search" type="text" defaultValue="" />
       </div>
-      <Button type='submit' size='sm' className='self-end mb-2'>
+      <Button type="submit" size="sm" className="self-end mb-2">
         search
       </Button>
       <Button
-        type='button'
+        type="button"
         asChild
-        size='sm'
-        variant='outline'
-        className='self-end mb-2'
+        size="sm"
+        variant="outline"
+        className="self-end mb-2"
       >
-        <Link to='/products'>reset</Link>
+        <Link to="/products">reset</Link>
       </Button>
     </Form>
   );
@@ -1604,15 +1604,15 @@ export type ProductsResponseWithParams = ProductsResponse & { params: Params };
 Filters.tsx
 
 ```tsx
-import { type ProductsResponseWithParams } from '@/utils';
+import { type ProductsResponseWithParams } from "@/utils";
 function Filters() {
   const { meta, params } = useLoaderData() as ProductsResponseWithParams;
   const { search } = params;
   return (
     <Form>
       <div>
-        <Label htmlFor='search'>Search Product</Label>
-        <Input id='search' name='search' type='text' defaultValue={search} />
+        <Label htmlFor="search">Search Product</Label>
+        <Input id="search" name="search" type="text" defaultValue={search} />
       </div>
     </Form>
   );
@@ -1626,8 +1626,8 @@ export default Filters;
 - import and setup in Filters
 
 ```tsx
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 type FormInputProps = {
   name: string;
@@ -1638,8 +1638,8 @@ type FormInputProps = {
 
 function FormInput({ label, name, type, defaultValue }: FormInputProps) {
   return (
-    <div className='mb-2'>
-      <Label htmlFor={name} className='capitalize'>
+    <div className="mb-2">
+      <Label htmlFor={name} className="capitalize">
         {label || name}
       </Label>
       <Input id={name} name={name} type={type} defaultValue={defaultValue} />
@@ -1650,19 +1650,19 @@ export default FormInput;
 ```
 
 ```tsx
-import FormInput from './FormInput';
+import FormInput from "./FormInput";
 
 function Filters() {
   const { meta, params } = useLoaderData() as ProductsResponseWithParams;
   const { search, company, category, shipping, order, price } = params;
 
   return (
-    <Form className='border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center'>
+    <Form className="border rounded-md px-8 py-4 grid gap-x-4 gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center">
       {/* search */}
       <FormInput
-        type='search'
-        label='search product'
-        name='search'
+        type="search"
+        label="search product"
+        name="search"
         defaultValue={search}
       />
     </Form>
@@ -1684,9 +1684,9 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 
-import { Label } from '@/components/ui/label';
+import { Label } from "@/components/ui/label";
 
 type SelectInputProps = {
   name: string;
@@ -1697,8 +1697,8 @@ type SelectInputProps = {
 
 function SelectInput({ label, name, options, defaultValue }: SelectInputProps) {
   return (
-    <div className='mb-2'>
-      <Label htmlFor={name} className='capitalize'>
+    <div className="mb-2">
+      <Label htmlFor={name} className="capitalize">
         {label || name}
       </Label>
       <Select defaultValue={defaultValue || options[0]} name={name}>
@@ -1728,8 +1728,8 @@ Filters.tsx
   /* CATEGORIES */
 }
 <FormSelect
-  label='select category'
-  name='category'
+  label="select category"
+  name="category"
   options={meta.categories}
   defaultValue={category}
 />;
@@ -1737,8 +1737,8 @@ Filters.tsx
   /* COMPANIES */
 }
 <FormSelect
-  label='select company'
-  name='company'
+  label="select company"
+  name="company"
   options={meta.companies}
   defaultValue={company}
 />;
@@ -1747,9 +1747,9 @@ Filters.tsx
 }
 
 <FormSelect
-  label='order by'
-  name='order'
-  options={['a-z', 'z-a', 'high', 'low']}
+  label="order by"
+  name="order"
+  options={["a-z", "z-a", "high", "low"]}
   defaultValue={order}
 />;
 ```
@@ -1761,17 +1761,17 @@ Filters.tsx
 Filters.tsx
 
 ```tsx
-<FormRange label='price' name='price' defaultValue={price} />
+<FormRange label="price" name="price" defaultValue={price} />
 ```
 
 FormRange.tsx
 
 ```tsx
-import { formatAsDollars } from '@/utils';
-import { useState } from 'react';
+import { formatAsDollars } from "@/utils";
+import { useState } from "react";
 
-import { Label } from '@/components/ui/label';
-import { Slider } from './ui/slider';
+import { Label } from "@/components/ui/label";
+import { Slider } from "./ui/slider";
 type FormRangeProps = {
   name: string;
   label?: string;
@@ -1785,8 +1785,8 @@ function FormRange({ name, label, defaultValue }: FormRangeProps) {
   const [selectedPrice, setSelectedPrice] = useState(defaultPrice);
 
   return (
-    <div className='mb-2'>
-      <Label htmlFor={name} className='capitalize flex justify-between'>
+    <div className="mb-2">
+      <Label htmlFor={name} className="capitalize flex justify-between">
         {label || name}
         <span>{formatAsDollars(selectedPrice)}</span>
       </Label>
@@ -1797,7 +1797,7 @@ function FormRange({ name, label, defaultValue }: FormRangeProps) {
         max={maxPrice}
         value={[selectedPrice]}
         onValueChange={(value) => setSelectedPrice(value[0])}
-        className='mt-4'
+        className="mt-4"
       />
     </div>
   );
@@ -1812,14 +1812,14 @@ export default FormRange;
 Filters.tsx
 
 ```tsx
-<FormCheckbox label='free shipping' name='shipping' defaultValue={shipping} />
+<FormCheckbox label="free shipping" name="shipping" defaultValue={shipping} />
 ```
 
 FormCheckbox.tsx
 
 ```tsx
-import { Label } from '@/components/ui/label';
-import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 
 type FormCheckboxProps = {
   name: string;
@@ -1828,11 +1828,11 @@ type FormCheckboxProps = {
 };
 
 function FormCheckbox({ name, label, defaultValue }: FormCheckboxProps) {
-  const defaultChecked = defaultValue === 'on' ? true : false;
+  const defaultChecked = defaultValue === "on" ? true : false;
 
   return (
-    <div className='mb-2 flex justify-between self-end'>
-      <Label htmlFor={name} className='capitalize'>
+    <div className="mb-2 flex justify-between self-end">
+      <Label htmlFor={name} className="capitalize">
         {label || name}
       </Label>
       <Checkbox id={name} name={name} defaultChecked={defaultChecked} />
@@ -1856,26 +1856,26 @@ npx shadcn-ui@latest add pagination
 pagination.tsx
 
 ```tsx
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 type PaginationLinkProps = {
   isActive?: boolean;
-} & Pick<ButtonProps, 'size'> &
+} & Pick<ButtonProps, "size"> &
   // Link
   React.ComponentProps<typeof Link>;
 
 const PaginationLink = ({
   className,
   isActive,
-  size = 'icon',
+  size = "icon",
   ...props
 }: PaginationLinkProps) => (
   // Link
   <Link
-    aria-current={isActive ? 'page' : undefined}
+    aria-current={isActive ? "page" : undefined}
     className={cn(
       buttonVariants({
-        variant: isActive ? 'outline' : 'ghost',
+        variant: isActive ? "outline" : "ghost",
         size,
       }),
       className
@@ -1891,7 +1891,7 @@ const PaginationLink = ({
 - setup export
 
 ```ts
-export * from './pagination';
+export * from "./pagination";
 ```
 
 ```ts
@@ -1922,8 +1922,8 @@ export const constructPrevOrNextUrl = ({
   search,
   pathname,
 }: ConstructPrevOrNextParams): { prevUrl: string; nextUrl: string } => {
-  const prevUrl = '/products';
-  const nextUrl = '/products';
+  const prevUrl = "/products";
+  const nextUrl = "/products";
   return { prevUrl, nextUrl };
 };
 ```
@@ -1938,14 +1938,14 @@ import {
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
-} from '@/components/ui/pagination';
+} from "@/components/ui/pagination";
 import {
   ProductsResponseWithParams,
   constructUrl,
   constructPrevOrNextUrl,
-} from '@/utils';
+} from "@/utils";
 
-import { useLoaderData, useLocation } from 'react-router-dom';
+import { useLoaderData, useLocation } from "react-router-dom";
 
 function PaginationContainer() {
   const { meta } = useLoaderData() as ProductsResponseWithParams;
@@ -1977,7 +1977,7 @@ function PaginationContainer() {
   });
 
   return (
-    <Pagination className='mt-16'>
+    <Pagination className="mt-16">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious to={prevUrl} />
@@ -2008,7 +2008,7 @@ export const constructUrl = ({
   pathname,
 }: ConstructUrlParams) => {
   const searchParams = new URLSearchParams(search);
-  searchParams.set('page', pageNumber.toString());
+  searchParams.set("page", pageNumber.toString());
   return `${pathname}?${searchParams.toString()}`;
 };
 
@@ -2047,14 +2047,14 @@ import {
   PaginationNext,
   PaginationPrevious,
   PaginationEllipsis,
-} from '@/components/ui/pagination';
+} from "@/components/ui/pagination";
 import {
   constructUrl,
   constructPrevOrNextUrl,
   type ProductsResponseWithParams,
-} from '@/utils';
+} from "@/utils";
 
-import { useLoaderData, useLocation } from 'react-router-dom';
+import { useLoaderData, useLocation } from "react-router-dom";
 
 function ComplexPaginationContainer() {
   const { meta } = useLoaderData() as ProductsResponseWithParams;
@@ -2108,7 +2108,7 @@ function ComplexPaginationContainer() {
     pages.push(constructButton({ pageNumber: 1, isActive: page === 1 }));
     // ellipsis
     if (page > 2) {
-      pages.push(constructEllipsis('dots-1'));
+      pages.push(constructEllipsis("dots-1"));
     }
     // active page
     if (page !== 1 && page !== pageCount) {
@@ -2116,7 +2116,7 @@ function ComplexPaginationContainer() {
     }
     // ellipsis
     if (page < pageCount - 1) {
-      pages.push(constructEllipsis('dots-2'));
+      pages.push(constructEllipsis("dots-2"));
     }
     // last page
     pages.push(
@@ -2131,7 +2131,7 @@ function ComplexPaginationContainer() {
     pathname,
   });
   return (
-    <Pagination className='mt-16'>
+    <Pagination className="mt-16">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious to={prevUrl} />
@@ -2163,18 +2163,18 @@ export type SingleProductResponse = {
 - import and setup loader in App.tsx
 
 ```tsx
-import { useLoaderData } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   customFetch,
   formatAsDollars,
   type SingleProductResponse,
-} from '@/utils';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
+} from "@/utils";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
-import { type LoaderFunction } from 'react-router-dom';
+import { type LoaderFunction } from "react-router-dom";
 
 export const loader: LoaderFunction = async ({ params }) => {
   console.log(params);
@@ -2182,7 +2182,7 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 const SingleProduct = () => {
-  return <h1 className='text-4xl'>SingleProduct Page</h1>;
+  return <h1 className="text-4xl">SingleProduct Page</h1>;
 };
 export default SingleProduct;
 ```
@@ -2209,10 +2209,10 @@ const SingleProduct = () => {
   const [amount, setAmount] = useState(1);
 
   const addToCart = () => {
-    consol.log('add to cart');
+    consol.log("add to cart");
   };
 
-  return <h1 className='text-4xl'>SingleProduct Page</h1>;
+  return <h1 className="text-4xl">SingleProduct Page</h1>;
 };
 export default SingleProduct;
 ```
@@ -2221,37 +2221,37 @@ export default SingleProduct;
 
 ```tsx
 <section>
-  <div className='flex gap-x-2 h-6 items-center'>
-    <Button asChild variant='link' size='sm'>
-      <Link to='/'>Home</Link>
+  <div className="flex gap-x-2 h-6 items-center">
+    <Button asChild variant="link" size="sm">
+      <Link to="/">Home</Link>
     </Button>
-    <Separator orientation='vertical' />
-    <Button asChild variant='link' size='sm'>
-      <Link to='/products'>Products</Link>
+    <Separator orientation="vertical" />
+    <Button asChild variant="link" size="sm">
+      <Link to="/products">Products</Link>
     </Button>
   </div>
   {/* PRODUCT */}
-  <div className='mt-6 grid gap-y-8 lg:grid-cols-2  lg:gap-x-16'>
+  <div className="mt-6 grid gap-y-8 lg:grid-cols-2  lg:gap-x-16">
     {/* IMAGE */}
     <img
       src={image}
       alt={title}
-      className='w-96 h-96 object-cover rounded-lg lg:w-full'
+      className="w-96 h-96 object-cover rounded-lg lg:w-full"
     />
     {/* PRODUCT INFO */}
     <div>
-      <h1 className='capitalize text-3xl font-bold'>{title}</h1>
-      <h4 className='text-xl mt-2'>{company}</h4>
-      <p className='mt-3 text-md bg-muted inline-block p-2 rounded-md'>
+      <h1 className="capitalize text-3xl font-bold">{title}</h1>
+      <h4 className="text-xl mt-2">{company}</h4>
+      <p className="mt-3 text-md bg-muted inline-block p-2 rounded-md">
         {dollarsAmount}
       </p>
-      <p className='mt-6 leading-8'>{description}</p>
+      <p className="mt-6 leading-8">{description}</p>
       {/* COLORS */}
 
       {/* AMOUNT */}
 
       {/* CART BUTTON */}
-      <Button size='lg' className='mt-10' onClick={addToCart}>
+      <Button size="lg" className="mt-10" onClick={addToCart}>
         Add to bag
       </Button>
     </div>
@@ -2276,17 +2276,17 @@ function SelectProductColor({
   setProductColor,
 }: SelectProductColorProps) {
   return (
-    <div className='mt-6'>
-      <h4 className='text-md font-medium tracking-wider capitalize'>colors</h4>
+    <div className="mt-6">
+      <h4 className="text-md font-medium tracking-wider capitalize">colors</h4>
 
-      <div className='mt-2'>
+      <div className="mt-2">
         {colors.map((color) => {
           return (
             <button
               key={color}
-              type='button'
+              type="button"
               className={`rounded-full w-6 h-6 mr-2 border-2  ${
-                color === productColor && ' border-primary'
+                color === productColor && " border-primary"
               }`}
               style={{ backgroundColor: color }}
               onClick={() => setProductColor(color)}
@@ -2319,11 +2319,11 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
+} from "@/components/ui/select";
 
 export enum Mode {
-  SingleProduct = 'singleProduct',
-  CartItem = 'cartItem',
+  SingleProduct = "singleProduct",
+  CartItem = "cartItem",
 }
 
 type SelectProductAmountProps = {
@@ -2346,12 +2346,12 @@ function SelectProductAmount({
   const cartItem = mode === Mode.CartItem;
   return (
     <>
-      <h4 className='font-medium mb-2'>Amount :</h4>
+      <h4 className="font-medium mb-2">Amount :</h4>
       <Select
         defaultValue={amount.toString()}
         onValueChange={(value) => setAmount(Number(value))}
       >
-        <SelectTrigger className={cartItem ? 'w-[75px]' : 'w-[150px]'}>
+        <SelectTrigger className={cartItem ? "w-[75px]" : "w-[150px]"}>
           <SelectValue placeholder={amount} />
         </SelectTrigger>
         <SelectContent>
@@ -2374,8 +2374,8 @@ export default SelectProductAmount;
 SingleProduct.tsx
 
 ```tsx
-import { SelectProductColor, SelectProductAmount } from '@/components';
-import { Mode } from '@/components/SelectProductAmount';
+import { SelectProductColor, SelectProductAmount } from "@/components";
+import { Mode } from "@/components/SelectProductAmount";
 
 <SelectProductAmount
   mode={Mode.SingleProduct}
@@ -2396,9 +2396,9 @@ npx shadcn-ui@latest add toast
 main.tsx
 
 ```tsx
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from "@/components/ui/toaster";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>
     <Toaster />
     <App />
@@ -2409,7 +2409,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 Component
 
 ```tsx
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from "@/components/ui/use-toast";
 
 export const ToastDemo = () => {
   const { toast } = useToast();
@@ -2418,8 +2418,8 @@ export const ToastDemo = () => {
     <Button
       onClick={() => {
         toast({
-          title: 'Scheduled: Catch up',
-          description: 'Friday, February 10, 2023 at 5:57 PM',
+          title: "Scheduled: Catch up",
+          description: "Friday, February 10, 2023 at 5:57 PM",
         });
       }}
     >
@@ -2432,9 +2432,9 @@ export const ToastDemo = () => {
 loaders/actions, features
 
 ```ts
-import { toast } from '@/components/ui/use-toast';
+import { toast } from "@/components/ui/use-toast";
 
-toast({ description: 'Item added to cart' });
+toast({ description: "Item added to cart" });
 ```
 
 ## CartItem and CartState Types
@@ -2466,9 +2466,9 @@ export type CartState = {
 ## CartSlice
 
 ```ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { type CartItem, type CartState } from '@/utils';
-import { toast } from '@/components/ui/use-toast';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { type CartItem, type CartState } from "@/utils";
+import { toast } from "@/components/ui/use-toast";
 
 const defaultState: CartState = {
   cartItems: [],
@@ -2480,12 +2480,12 @@ const defaultState: CartState = {
 };
 
 const getCartFromLocalStorage = (): CartState => {
-  const cart = localStorage.getItem('cart');
+  const cart = localStorage.getItem("cart");
   return cart ? JSON.parse(cart) : defaultState;
 };
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState: getCartFromLocalStorage(),
   reducers: {
     addItem: (state, action: PayloadAction<CartItem>) => {
@@ -2502,10 +2502,10 @@ const cartSlice = createSlice({
       // state.orderTotal = state.cartTotal + state.shipping + state.tax;
       // localStorage.setItem('cart', JSON.stringify(state));
       cartSlice.caseReducers.calculateTotals(state);
-      toast({ description: 'Item added to cart' });
+      toast({ description: "Item added to cart" });
     },
     clearCart: () => {
-      localStorage.setItem('cart', JSON.stringify(defaultState));
+      localStorage.setItem("cart", JSON.stringify(defaultState));
       return defaultState;
     },
     removeItem: (state, action: PayloadAction<string>) => {
@@ -2516,7 +2516,7 @@ const cartSlice = createSlice({
       state.numItemsInCart -= cartItem.amount;
       state.cartTotal -= Number(cartItem.price) * cartItem.amount;
       cartSlice.caseReducers.calculateTotals(state);
-      toast({ description: 'Item removed from the cart' });
+      toast({ description: "Item removed from the cart" });
     },
     editItem: (
       state,
@@ -2530,12 +2530,12 @@ const cartSlice = createSlice({
       state.cartTotal += Number(cartItem.price) * (amount - cartItem.amount);
       cartItem.amount = amount;
       cartSlice.caseReducers.calculateTotals(state);
-      toast({ description: 'Amount updated' });
+      toast({ description: "Amount updated" });
     },
     calculateTotals: (state) => {
       state.tax = 0.1 * state.cartTotal;
       state.orderTotal = state.cartTotal + state.shipping + state.tax;
-      localStorage.setItem('cart', JSON.stringify(state));
+      localStorage.setItem("cart", JSON.stringify(state));
     },
   },
 });
@@ -2547,10 +2547,10 @@ export default cartSlice.reducer;
 ## CartButton
 
 ```tsx
-import { Button } from './ui/button';
-import { ShoppingCart } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useAppSelector } from '@/hooks';
+import { Button } from "./ui/button";
+import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useAppSelector } from "@/hooks";
 function CartButton() {
   const numItemsInCart = useAppSelector(
     (state) => state.cartState.numItemsInCart
@@ -2559,13 +2559,13 @@ function CartButton() {
   return (
     <Button
       asChild
-      variant='outline'
-      size='icon'
-      className='flex justify-center items-center relative'
+      variant="outline"
+      size="icon"
+      className="flex justify-center items-center relative"
     >
-      <Link to='/cart'>
+      <Link to="/cart">
         <ShoppingCart />
-        <span className='absolute -top-3 -right-3 bg-primary text-white rounded-full h-6 w-6 flex items-center justify-center text-xs'>
+        <span className="absolute -top-3 -right-3 bg-primary text-white rounded-full h-6 w-6 flex items-center justify-center text-xs">
           {numItemsInCart}
         </span>
       </Link>
@@ -2578,9 +2578,9 @@ export default CartButton;
 ## SingleProduct - AddItem
 
 ```tsx
-import { type CartItem } from '@/utils';
-import { useAppDispatch } from '@/hooks';
-import { addItem } from '@/features/cart/cartSlice';
+import { type CartItem } from "@/utils";
+import { useAppDispatch } from "@/hooks";
+import { addItem } from "@/features/cart/cartSlice";
 
 const dispatch = useAppDispatch();
 
@@ -2608,10 +2608,10 @@ const addToCart = () => {
 Cart.tsx
 
 ```tsx
-import { useAppSelector } from '@/hooks';
-import { CartItemsList, SectionTitle, CartTotals } from '@/components';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { useAppSelector } from "@/hooks";
+import { CartItemsList, SectionTitle, CartTotals } from "@/components";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const Cart = () => {
   // temp
@@ -2622,24 +2622,24 @@ const Cart = () => {
   );
 
   if (numItemsInCart === 0) {
-    return <SectionTitle text='Empty cart ☹️' />;
+    return <SectionTitle text="Empty cart ☹️" />;
   }
   return (
     <>
-      <SectionTitle text='Shopping Cart' />
-      <div className='mt-8 grid gap-8  lg:grid-cols-12'>
-        <div className='lg:col-span-8'>
+      <SectionTitle text="Shopping Cart" />
+      <div className="mt-8 grid gap-8  lg:grid-cols-12">
+        <div className="lg:col-span-8">
           <CartItemsList />
         </div>
-        <div className='lg:col-span-4 lg:pl-4'>
+        <div className="lg:col-span-4 lg:pl-4">
           <CartTotals />
           {user ? (
-            <Button asChild className='mt-8 w-full'>
-              <Link to='/checkout'>Proceed to checkout</Link>
+            <Button asChild className="mt-8 w-full">
+              <Link to="/checkout">Proceed to checkout</Link>
             </Button>
           ) : (
-            <Button asChild className='mt-8 w-full'>
-              <Link to='/login'>Please Login</Link>
+            <Button asChild className="mt-8 w-full">
+              <Link to="/login">Please Login</Link>
             </Button>
           )}
         </div>
@@ -2653,10 +2653,10 @@ export default Cart;
 ## CartTotals
 
 ```tsx
-import { useAppSelector } from '@/hooks';
-import { formatAsDollars } from '@/utils';
-import { Card, CardTitle } from '@/components/ui/card';
-import { Separator } from './ui/separator';
+import { useAppSelector } from "@/hooks";
+import { formatAsDollars } from "@/utils";
+import { Card, CardTitle } from "@/components/ui/card";
+import { Separator } from "./ui/separator";
 
 const CartTotals = () => {
   const { cartTotal, shipping, tax, orderTotal } = useAppSelector(
@@ -2664,12 +2664,12 @@ const CartTotals = () => {
   );
 
   return (
-    <Card className='p-8 bg-muted'>
-      <CartTotalRow label='Subtotal' amount={cartTotal} />
-      <CartTotalRow label='Shipping' amount={shipping} />
-      <CartTotalRow label='Tax' amount={tax} />
-      <CardTitle className='mt-8'>
-        <CartTotalRow label='Order Total' amount={orderTotal} lastRow />
+    <Card className="p-8 bg-muted">
+      <CartTotalRow label="Subtotal" amount={cartTotal} />
+      <CartTotalRow label="Shipping" amount={shipping} />
+      <CartTotalRow label="Tax" amount={tax} />
+      <CardTitle className="mt-8">
+        <CartTotalRow label="Order Total" amount={orderTotal} lastRow />
       </CardTitle>
     </Card>
   );
@@ -2686,11 +2686,11 @@ function CartTotalRow({
 }) {
   return (
     <>
-      <p className='flex justify-between text-sm'>
+      <p className="flex justify-between text-sm">
         <span>{label}</span>
         <span>{formatAsDollars(amount)}</span>
       </p>
-      {lastRow ? null : <Separator className='my-2' />}
+      {lastRow ? null : <Separator className="my-2" />}
     </>
   );
 }
@@ -2701,15 +2701,15 @@ export default CartTotals;
 ## CartItemsList
 
 ```tsx
-import { useAppSelector } from '@/hooks';
-import { Card } from './ui/card';
+import { useAppSelector } from "@/hooks";
+import { Card } from "./ui/card";
 
 import {
   FirstColumn,
   SecondColumn,
   ThirdColumn,
   FourthColumn,
-} from './CartItemColumns';
+} from "./CartItemColumns";
 const CartItemsList = () => {
   const cartItems = useAppSelector((state) => state.cartState.cartItems);
 
@@ -2721,7 +2721,7 @@ const CartItemsList = () => {
         return (
           <Card
             key={cartID}
-            className='flex flex-col gap-y-4 sm:flex-row flex-wrap p-6 mb-8'
+            className="flex flex-col gap-y-4 sm:flex-row flex-wrap p-6 mb-8"
           >
             Cart Item
           </Card>
@@ -2737,12 +2737,12 @@ export default CartItemsList;
 ## CartItemColumns
 
 ```tsx
-import { formatAsDollars } from '@/utils';
-import { useAppDispatch } from '@/hooks';
-import { Button } from './ui/button';
-import { editItem, removeItem } from '@/features/cart/cartSlice';
-import SelectProductAmount from './SelectProductAmount';
-import { Mode } from './SelectProductAmount';
+import { formatAsDollars } from "@/utils";
+import { useAppDispatch } from "@/hooks";
+import { Button } from "./ui/button";
+import { editItem, removeItem } from "@/features/cart/cartSlice";
+import SelectProductAmount from "./SelectProductAmount";
+import { Mode } from "./SelectProductAmount";
 export const ThirdColumn = ({
   amount,
   cartID,
@@ -2767,7 +2767,7 @@ export const ThirdColumn = ({
         setAmount={setAmount}
         mode={Mode.CartItem}
       />
-      <Button variant='link' className='-ml-4' onClick={removeItemFromTheCart}>
+      <Button variant="link" className="-ml-4" onClick={removeItemFromTheCart}>
         remove
       </Button>
     </div>
@@ -2785,7 +2785,7 @@ export const FirstColumn = ({
     <img
       src={image}
       alt={title}
-      className='h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover'
+      className="h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover"
     />
   );
 };
@@ -2800,16 +2800,16 @@ export const SecondColumn = ({
   productColor: string;
 }) => {
   return (
-    <div className='sm:ml-4 md:ml-12 sm:w-48'>
-      <h3 className='capitalize font-medium'>{title}</h3>
-      <h4 className='mt-2 capitalize text-sm'>{company}</h4>
-      <p className='mt-4 text-sm capitalize flex items-center gap-x-2'>
+    <div className="sm:ml-4 md:ml-12 sm:w-48">
+      <h3 className="capitalize font-medium">{title}</h3>
+      <h4 className="mt-2 capitalize text-sm">{company}</h4>
+      <p className="mt-4 text-sm capitalize flex items-center gap-x-2">
         color :
         <span
           style={{
-            width: '15px',
-            height: '15px',
-            borderRadius: '50%',
+            width: "15px",
+            height: "15px",
+            borderRadius: "50%",
             backgroundColor: productColor,
           }}
         ></span>
@@ -2819,7 +2819,7 @@ export const SecondColumn = ({
 };
 
 export const FourthColumn = ({ price }: { price: string }) => {
-  return <p className='font-medium sm:ml-auto'>{formatAsDollars(price)}</p>;
+  return <p className="font-medium sm:ml-auto">{formatAsDollars(price)}</p>;
 };
 ```
 
@@ -2837,8 +2837,8 @@ CartItemsList.tsx
 ## UserSlice
 
 ```ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { toast } from '@/components/ui/use-toast';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { toast } from "@/components/ui/use-toast";
 
 export type User = {
   username: string;
@@ -2850,7 +2850,7 @@ type UserState = {
 };
 
 const getUserFromLocalStorage = (): User | null => {
-  const user = localStorage.getItem('user');
+  const user = localStorage.getItem("user");
   if (!user) return null;
   return JSON.parse(user);
 };
@@ -2860,24 +2860,24 @@ const initialState: UserState = {
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
     loginUser: (state, action: PayloadAction<User>) => {
       const user = action.payload;
       state.user = user;
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(user));
 
-      if (user.username === 'demo user') {
-        toast({ description: 'Welcome Guest User' });
+      if (user.username === "demo user") {
+        toast({ description: "Welcome Guest User" });
         return;
       }
-      toast({ description: 'Login successful' });
+      toast({ description: "Login successful" });
     },
     logoutUser: (state) => {
       state.user = null;
       // localStorage.clear()
-      localStorage.removeItem('user');
+      localStorage.removeItem("user");
     },
   },
 });
@@ -2896,13 +2896,13 @@ export default userSlice.reducer;
 - create components/SubmitBtn.tsx
 
 ```tsx
-import { ActionFunction, Form, Link, redirect } from 'react-router-dom';
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { SubmitBtn, FormInput } from '@/components';
-import { customFetch } from '@/utils';
-import { toast } from '@/components/ui/use-toast';
-import { AxiosError } from 'axios';
+import { ActionFunction, Form, Link, redirect } from "react-router-dom";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { SubmitBtn, FormInput } from "@/components";
+import { customFetch } from "@/utils";
+import { toast } from "@/components/ui/use-toast";
+import { AxiosError } from "axios";
 
 export const action: ActionFunction = async ({ request }): Promise<null> => {
   return null;
@@ -2910,25 +2910,25 @@ export const action: ActionFunction = async ({ request }): Promise<null> => {
 
 function Register() {
   return (
-    <section className='h-screen grid place-items-center'>
-      <Card className='w-96 bg-muted'>
+    <section className="h-screen grid place-items-center">
+      <Card className="w-96 bg-muted">
         <CardHeader>
-          <CardTitle className='text-center'>Register</CardTitle>
+          <CardTitle className="text-center">Register</CardTitle>
         </CardHeader>
         <CardContent>
           <Form>
-            <FormInput type='text' name='username' defaultValue='test' />
-            <FormInput type='email' name='email' defaultValue='test@test.com' />
-            <FormInput type='password' name='password' defaultValue='secret' />
+            <FormInput type="text" name="username" defaultValue="test" />
+            <FormInput type="email" name="email" defaultValue="test@test.com" />
+            <FormInput type="password" name="password" defaultValue="secret" />
 
-            <Button type='submit' variant='default' className='w-full mt-4'>
+            <Button type="submit" variant="default" className="w-full mt-4">
               Submit
             </Button>
 
-            <p className='text-center mt-4'>
+            <p className="text-center mt-4">
               Already a member?
-              <Button type='button' asChild variant='link'>
-                <Link to='/login'>Login</Link>
+              <Button type="button" asChild variant="link">
+                <Link to="/login">Login</Link>
               </Button>
             </p>
           </Form>
@@ -2979,17 +2979,17 @@ export const action: ActionFunction = async ({
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   try {
-    await customFetch.post('/auth/local/register', data);
+    await customFetch.post("/auth/local/register", data);
 
-    toast({ description: 'Registered' });
-    return redirect('/login');
+    toast({ description: "Registered" });
+    return redirect("/login");
   } catch (error) {
     console.log(error);
 
     const errorMsg =
       error instanceof AxiosError
         ? error.response?.data.error.message
-        : 'Registration Failed';
+        : "Registration Failed";
     toast({ description: errorMsg });
     return null;
   }
@@ -3003,9 +3003,9 @@ npm i @radix-ui/react-icons
 ```
 
 ```tsx
-import { useNavigation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ReloadIcon } from '@radix-ui/react-icons';
+import { useNavigation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ReloadIcon } from "@radix-ui/react-icons";
 
 const SubmitBtn = ({
   text,
@@ -3015,12 +3015,12 @@ const SubmitBtn = ({
   className?: string;
 }) => {
   const navigation = useNavigation();
-  const isSubmitting = navigation.state === 'submitting';
+  const isSubmitting = navigation.state === "submitting";
   return (
-    <Button type='submit' className={className} disabled={isSubmitting}>
+    <Button type="submit" className={className} disabled={isSubmitting}>
       {isSubmitting ? (
-        <span className='flex '>
-          <ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
+        <span className="flex ">
+          <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
           Submitting...
         </span>
       ) : (
@@ -3035,7 +3035,7 @@ export default SubmitBtn;
 Register.tsx
 
 ```tsx
-<SubmitBtn text='Register' className='w-full mt-4' />
+<SubmitBtn text="Register" className="w-full mt-4" />
 ```
 
 temp
@@ -3054,42 +3054,42 @@ import {
   redirect,
   type ActionFunction,
   useNavigate,
-} from 'react-router-dom';
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { SubmitBtn, FormInput } from '@/components';
-import { customFetch } from '@/utils';
-import { toast } from '@/components/ui/use-toast';
-import { type ReduxStore } from '@/store';
-import { loginUser } from '@/features/user/userSlice';
-import { useAppDispatch } from '@/hooks';
-import { AxiosResponse } from 'axios';
+} from "react-router-dom";
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { SubmitBtn, FormInput } from "@/components";
+import { customFetch } from "@/utils";
+import { toast } from "@/components/ui/use-toast";
+import { type ReduxStore } from "@/store";
+import { loginUser } from "@/features/user/userSlice";
+import { useAppDispatch } from "@/hooks";
+import { AxiosResponse } from "axios";
 
 function Login() {
   return (
-    <section className='h-screen grid place-items-center'>
-      <Card className='w-96 bg-muted'>
+    <section className="h-screen grid place-items-center">
+      <Card className="w-96 bg-muted">
         <CardHeader>
-          <CardTitle className='text-center'>Login</CardTitle>
+          <CardTitle className="text-center">Login</CardTitle>
         </CardHeader>
         <CardContent>
-          <Form method='POST'>
-            <FormInput type='email' label='email' name='identifier' />
-            <FormInput type='password' name='password' />
+          <Form method="POST">
+            <FormInput type="email" label="email" name="identifier" />
+            <FormInput type="password" name="password" />
 
-            <SubmitBtn text='Login' className='w-full mt-4' />
+            <SubmitBtn text="Login" className="w-full mt-4" />
             <Button
-              type='button'
-              variant='outline'
+              type="button"
+              variant="outline"
               onClick={loginAsGuestUser}
-              className='w-full mt-4'
+              className="w-full mt-4"
             >
               Guest User
             </Button>
-            <p className='text-center mt-4'>
+            <p className="text-center mt-4">
               Not a member yet?
-              <Button type='button' asChild variant='link'>
-                <Link to='/register'>Register</Link>
+              <Button type="button" asChild variant="link">
+                <Link to="/register">Register</Link>
               </Button>
             </p>
           </Form>
@@ -3108,17 +3108,17 @@ const dispatch = useAppDispatch();
 const navigate = useNavigate();
 const loginAsGuestUser = async (): Promise<void> => {
   try {
-    const response = await customFetch.post('/auth/local', {
-      identifier: 'test@test.com',
-      password: 'secret',
+    const response = await customFetch.post("/auth/local", {
+      identifier: "test@test.com",
+      password: "secret",
     });
     const username = response.data.user.username;
     const jwt = response.data.jwt;
     dispatch(loginUser({ username, jwt }));
-    navigate('/');
+    navigate("/");
   } catch (error) {
     console.log(error);
-    toast({ description: 'Login Failed' });
+    toast({ description: "Login Failed" });
   }
 };
 ```
@@ -3150,16 +3150,16 @@ export const action =
     const data = Object.fromEntries(formData);
     try {
       const response: AxiosResponse = await customFetch.post(
-        '/auth/local',
+        "/auth/local",
         data
       );
       const username = response.data.user.username;
       const jwt = response.data.jwt;
       store.dispatch(loginUser({ username, jwt }));
-      return redirect('/');
+      return redirect("/");
     } catch (error) {
       // console.log(error);
-      toast({ description: 'Login Failed' });
+      toast({ description: "Login Failed" });
       return null;
     }
   };
@@ -3168,13 +3168,13 @@ export const action =
 ## Header Component
 
 ```tsx
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from './ui/button';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
+import { useAppDispatch, useAppSelector } from "@/hooks";
 
-import { logoutUser } from '../features/user/userSlice';
-import { clearCart } from '../features/cart/cartSlice';
-import { useToast } from './ui/use-toast';
+import { logoutUser } from "../features/user/userSlice";
+import { clearCart } from "../features/cart/cartSlice";
+import { useToast } from "./ui/use-toast";
 
 const Header = () => {
   const dispatch = useAppDispatch();
@@ -3185,28 +3185,28 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(clearCart());
     dispatch(logoutUser());
-    toast({ description: 'Logged out' });
-    navigate('/');
+    toast({ description: "Logged out" });
+    navigate("/");
   };
 
   return (
     <header>
-      <div className='align-element flex justify-center sm:justify-end py-2'>
+      <div className="align-element flex justify-center sm:justify-end py-2">
         {/* USER */}
         {user ? (
-          <div className='flex gap-x-2 sm:gap-x-8 items-center'>
-            <p className='text-xs sm:text-sm'>Hello, {user.username}</p>
-            <Button variant='link' size='sm' onClick={handleLogout}>
+          <div className="flex gap-x-2 sm:gap-x-8 items-center">
+            <p className="text-xs sm:text-sm">Hello, {user.username}</p>
+            <Button variant="link" size="sm" onClick={handleLogout}>
               Logout
             </Button>
           </div>
         ) : (
-          <div className='flex gap-x-6 justify-center items-center -mr-4'>
-            <Button asChild variant='link' size='sm'>
-              <Link to='/login'>Sign in / Guest</Link>
+          <div className="flex gap-x-6 justify-center items-center -mr-4">
+            <Button asChild variant="link" size="sm">
+              <Link to="/login">Sign in / Guest</Link>
             </Button>
-            <Button asChild variant='link' size='sm'>
-              <Link to='/register'>Register</Link>
+            <Button asChild variant="link" size="sm">
+              <Link to="/register">Register</Link>
             </Button>
           </div>
         )}
@@ -3220,23 +3220,23 @@ export default Header;
 ## NavLinks
 
 ```tsx
-import { links } from '@/utils';
-import { NavLink } from 'react-router-dom';
-import { useAppSelector } from '@/hooks';
+import { links } from "@/utils";
+import { NavLink } from "react-router-dom";
+import { useAppSelector } from "@/hooks";
 function NavLinks() {
   const user = useAppSelector((state) => state.userState.user);
   return (
-    <div className='hidden lg:flex justify-center items-center gap-x-4'>
+    <div className="hidden lg:flex justify-center items-center gap-x-4">
       {links.map((link) => {
         const restrictedRoutes =
-          link.href === 'checkout' || link.href === 'orders';
+          link.href === "checkout" || link.href === "orders";
         if (restrictedRoutes && !user) return null;
         return (
           <NavLink
             to={link.href}
             className={({ isActive }) => {
               return `capitalize font-light tracking-wide ${
-                isActive ? 'text-primary' : ''
+                isActive ? "text-primary" : ""
               }`;
             }}
             key={link.label}
@@ -3259,39 +3259,39 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { AlignLeft } from 'lucide-react';
-import { Button } from './ui/button';
-import { links } from '@/utils';
-import { NavLink } from 'react-router-dom';
-import { useAppSelector } from '@/hooks';
+} from "@/components/ui/dropdown-menu";
+import { AlignLeft } from "lucide-react";
+import { Button } from "./ui/button";
+import { links } from "@/utils";
+import { NavLink } from "react-router-dom";
+import { useAppSelector } from "@/hooks";
 
 function LinksDropdown() {
   const user = useAppSelector((state) => state.userState.user);
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className='lg:hidden'>
-        <Button variant='outline' size='icon'>
+      <DropdownMenuTrigger asChild className="lg:hidden">
+        <Button variant="outline" size="icon">
           <AlignLeft />
 
-          <span className='sr-only'>Toggle links</span>
+          <span className="sr-only">Toggle links</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className='w-52 lg:hidden '
-        align='start'
+        className="w-52 lg:hidden "
+        align="start"
         sideOffset={25}
       >
         {links.map((link) => {
           const restrictedRoutes =
-            link.href === 'checkout' || link.href === 'orders';
+            link.href === "checkout" || link.href === "orders";
           if (restrictedRoutes && !user) return null;
           return (
             <DropdownMenuItem key={link.label}>
               <NavLink
                 to={link.href}
                 className={({ isActive }) => {
-                  return `capitalize w-full ${isActive ? 'text-primary' : ''}`;
+                  return `capitalize w-full ${isActive ? "text-primary" : ""}`;
                 }}
               >
                 {link.label}
@@ -3309,10 +3309,10 @@ export default LinksDropdown;
 ## Cart Page
 
 ```tsx
-import { useAppSelector } from '@/hooks';
-import { CartItemsList, SectionTitle, CartTotals } from '@/components';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { useAppSelector } from "@/hooks";
+import { CartItemsList, SectionTitle, CartTotals } from "@/components";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 function Cart() {
   const user = useAppSelector((state) => state.userState.user);
@@ -3321,24 +3321,24 @@ function Cart() {
     (state) => state.cartState.numItemsInCart
   );
   if (numItemsInCart === 0) {
-    return <SectionTitle text='Empty cart' />;
+    return <SectionTitle text="Empty cart" />;
   }
 
   return (
     <>
-      <SectionTitle text='Shopping Cart' />
-      <div className='mt-8 grid gap-8 lg:grid-cols-12'>
-        <div className='lg:col-span-8'>
+      <SectionTitle text="Shopping Cart" />
+      <div className="mt-8 grid gap-8 lg:grid-cols-12">
+        <div className="lg:col-span-8">
           <CartItemsList />
         </div>
-        <div className='lg:col-span-4 lg:pl-4'>
+        <div className="lg:col-span-4 lg:pl-4">
           <CartTotals />
 
-          <Button asChild className='mt-8 w-full'>
+          <Button asChild className="mt-8 w-full">
             {user ? (
-              <Link to='/checkout'> Proceed to checkout</Link>
+              <Link to="/checkout"> Proceed to checkout</Link>
             ) : (
-              <Link to='/login'>Please Login</Link>
+              <Link to="/login">Please Login</Link>
             )}
           </Button>
         </div>
@@ -3355,19 +3355,19 @@ export default Cart;
 - import and setup loader in the App.tsx
 
 ```tsx
-import { useAppSelector } from '@/hooks';
-import { CheckoutForm, SectionTitle, CartTotals } from '@/components';
-import { LoaderFunction, redirect } from 'react-router-dom';
-import { toast } from '@/components/ui/use-toast';
-import { type ReduxStore } from '@/store';
+import { useAppSelector } from "@/hooks";
+import { CheckoutForm, SectionTitle, CartTotals } from "@/components";
+import { LoaderFunction, redirect } from "react-router-dom";
+import { toast } from "@/components/ui/use-toast";
+import { type ReduxStore } from "@/store";
 
 export const loader =
   (store: ReduxStore): LoaderFunction =>
   async (): Promise<Response | null> => {
     const user = store.getState().userState.user;
     if (!user) {
-      toast({ description: 'Please login to continue' });
-      return redirect('/login');
+      toast({ description: "Please login to continue" });
+      return redirect("/login");
     }
 
     return null;
@@ -3376,12 +3376,12 @@ export const loader =
 const Checkout = () => {
   const cartTotal = useAppSelector((state) => state.cartState.cartTotal);
   if (cartTotal === 0) {
-    return <SectionTitle text='Your cart is empty' />;
+    return <SectionTitle text="Your cart is empty" />;
   }
   return (
     <>
-      <SectionTitle text='Place your order' />
-      <div className='mt-8 grid gap-8  md:grid-cols-2 items-start'>
+      <SectionTitle text="Place your order" />
+      <div className="mt-8 grid gap-8  md:grid-cols-2 items-start">
         <CheckoutForm />
         <CartTotals />
       </div>
@@ -3407,30 +3407,30 @@ export type Checkout = {
 ## Checkout Form
 
 ```tsx
-import { ActionFunction, Form, redirect } from 'react-router-dom';
-import FormInput from './FormInput';
-import SubmitBtn from './SubmitBtn';
-import { customFetch, formatAsDollars, type Checkout } from '@/utils';
-import { toast } from '@/components/ui/use-toast';
-import { clearCart } from '../features/cart/cartSlice';
-import { ReduxStore } from '@/store';
+import { ActionFunction, Form, redirect } from "react-router-dom";
+import FormInput from "./FormInput";
+import SubmitBtn from "./SubmitBtn";
+import { customFetch, formatAsDollars, type Checkout } from "@/utils";
+import { toast } from "@/components/ui/use-toast";
+import { clearCart } from "../features/cart/cartSlice";
+import { ReduxStore } from "@/store";
 
 export const action =
   (store: ReduxStore): ActionFunction =>
   async ({ request }) => {
     const formData = await request.formData();
-    const name = formData.get('name') as string;
-    const address = formData.get('name') as string;
+    const name = formData.get("name") as string;
+    const address = formData.get("name") as string;
 
     if (!name || !address) {
-      toast({ description: 'please fill out all fields' });
+      toast({ description: "please fill out all fields" });
       return null;
     }
 
     const user = store.getState().userState.user;
     if (!user) {
-      toast({ description: 'please login to place an order' });
-      return redirect('/login');
+      toast({ description: "please login to place an order" });
+      return redirect("/login");
     }
     const { cartItems, orderTotal, numItemsInCart } =
       store.getState().cartState;
@@ -3445,7 +3445,7 @@ export const action =
     };
     try {
       await customFetch.post(
-        '/orders',
+        "/orders",
         { data: info },
         {
           headers: {
@@ -3455,21 +3455,21 @@ export const action =
       );
 
       store.dispatch(clearCart());
-      toast({ description: 'order placed' });
-      return redirect('/orders');
+      toast({ description: "order placed" });
+      return redirect("/orders");
     } catch (error) {
-      toast({ description: 'order failed' });
+      toast({ description: "order failed" });
       return null;
     }
   };
 const CheckoutForm = () => {
   return (
-    <Form method='POST' className='flex flex-col gap-y-4'>
-      <h4 className='font-medium text-xl mb-4'>Shipping Information</h4>
-      <FormInput label='first name' name='name' type='text' />
-      <FormInput label='address' name='address' type='text' />
-      <div className='mt-4'>
-        <SubmitBtn text='Place Your Order' />
+    <Form method="POST" className="flex flex-col gap-y-4">
+      <h4 className="font-medium text-xl mb-4">Shipping Information</h4>
+      <FormInput label="first name" name="name" type="text" />
+      <FormInput label="address" name="address" type="text" />
+      <div className="mt-4">
+        <SubmitBtn text="Place Your Order" />
       </div>
     </Form>
   );
@@ -3510,31 +3510,31 @@ export type OrdersResponse = {
 - setup loader in the App.tsx
 
 ```tsx
-import { LoaderFunction, redirect, useLoaderData } from 'react-router-dom';
-import { toast } from '@/components/ui/use-toast';
-import { customFetch } from '@/utils';
+import { LoaderFunction, redirect, useLoaderData } from "react-router-dom";
+import { toast } from "@/components/ui/use-toast";
+import { customFetch } from "@/utils";
 import {
   OrdersList,
   ComplexPaginationContainer,
   SectionTitle,
-} from '@/components';
-import { ReduxStore } from '@/store';
-import { type OrdersResponse } from '@/utils';
+} from "@/components";
+import { ReduxStore } from "@/store";
+import { type OrdersResponse } from "@/utils";
 export const loader =
   (store: ReduxStore): LoaderFunction =>
   async ({ request }): Promise<OrdersResponse | Response | null> => {
     const user = store.getState().userState.user;
 
     if (!user) {
-      toast({ description: 'Please login to continue' });
-      return redirect('/login');
+      toast({ description: "Please login to continue" });
+      return redirect("/login");
     }
     const params = Object.fromEntries([
       ...new URL(request.url).searchParams.entries(),
     ]);
 
     try {
-      const response = await customFetch.get<OrdersResponse>('/orders', {
+      const response = await customFetch.get<OrdersResponse>("/orders", {
         params,
         headers: {
           Authorization: `Bearer ${user.jwt}`,
@@ -3544,18 +3544,18 @@ export const loader =
       return { ...response.data };
     } catch (error) {
       console.log(error);
-      toast({ description: 'Failed to fetch orders' });
+      toast({ description: "Failed to fetch orders" });
       return null;
     }
   };
 const Orders = () => {
   const { meta } = useLoaderData() as OrdersResponse;
   if (meta.pagination.total < 1) {
-    return <SectionTitle text='Please make an order' />;
+    return <SectionTitle text="Please make an order" />;
   }
   return (
     <>
-      <SectionTitle text='Your Orders' />
+      <SectionTitle text="Your Orders" />
       <OrdersList />
       <ComplexPaginationContainer />
     </>
@@ -3574,9 +3574,9 @@ npx shadcn-ui@latest add table
 ```
 
 ```tsx
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData } from "react-router-dom";
 
-import { type OrdersResponse } from '@/utils';
+import { type OrdersResponse } from "@/utils";
 
 import {
   Table,
@@ -3586,14 +3586,14 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table';
+} from "@/components/ui/table";
 
 function OrdersList() {
   const { data: orders, meta } = useLoaderData() as OrdersResponse;
 
   return (
-    <div className='mt-16'>
-      <h4 className='mb-4 capitalize'>
+    <div className="mt-16">
+      <h4 className="mb-4 capitalize">
         total orders : {meta.pagination.total}
       </h4>
       <Table>
@@ -3602,8 +3602,8 @@ function OrdersList() {
           <TableRow>
             <TableHead>Name</TableHead>
             <TableHead>Address</TableHead>
-            <TableHead className='w-[100px]'>Products</TableHead>
-            <TableHead className='w-[100px]'>Cost</TableHead>
+            <TableHead className="w-[100px]">Products</TableHead>
+            <TableHead className="w-[100px]">Cost</TableHead>
             <TableHead>Date</TableHead>
           </TableRow>
         </TableHeader>
@@ -3615,7 +3615,7 @@ function OrdersList() {
               <TableRow key={order.id}>
                 <TableCell>{name}</TableCell>
                 <TableCell>{address}</TableCell>
-                <TableCell className='text-center'>{numItemsInCart}</TableCell>
+                <TableCell className="text-center">{numItemsInCart}</TableCell>
                 <TableCell>{orderTotal}</TableCell>
                 <TableCell>{new Date(createdAt).toDateString()}</TableCell>
               </TableRow>
@@ -3640,14 +3640,14 @@ import {
   PaginationNext,
   PaginationPrevious,
   PaginationEllipsis,
-} from '@/components/ui/pagination';
+} from "@/components/ui/pagination";
 import {
   constructUrl,
   constructPrevOrNextUrl,
   type OrdersResponse,
-} from '@/utils';
+} from "@/utils";
 
-import { useLoaderData, useLocation } from 'react-router-dom';
+import { useLoaderData, useLocation } from "react-router-dom";
 
 function ComplexPaginationContainer() {
   const { meta } = useLoaderData() as OrdersResponse;
@@ -3701,7 +3701,7 @@ function ComplexPaginationContainer() {
     pages.push(constructButton({ pageNumber: 1, isActive: page === 1 }));
     // ellipsis
     if (page > 2) {
-      pages.push(constructEllipsis('dots-1'));
+      pages.push(constructEllipsis("dots-1"));
     }
     // active page
     if (page !== 1 && page !== pageCount) {
@@ -3709,7 +3709,7 @@ function ComplexPaginationContainer() {
     }
     // ellipsis
     if (page < pageCount - 1) {
-      pages.push(constructEllipsis('dots-2'));
+      pages.push(constructEllipsis("dots-2"));
     }
     // last page
     pages.push(
@@ -3724,7 +3724,7 @@ function ComplexPaginationContainer() {
     pathname,
   });
   return (
-    <Pagination className='mt-16'>
+    <Pagination className="mt-16">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious to={prevUrl} />
