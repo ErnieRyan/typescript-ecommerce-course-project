@@ -77,10 +77,6 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return (
-    <RouterProvider router={router}>
-      <h1 className="text-7xl font-bold ">App</h1>
-    </RouterProvider>
-  );
+  return <RouterProvider router={router} />;
 };
 export default App;
