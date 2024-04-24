@@ -51,7 +51,6 @@ const SelectProductAmount = ({
           })}
         </SelectContent>
       </Select>
-      ;
     </>
   );
 };
