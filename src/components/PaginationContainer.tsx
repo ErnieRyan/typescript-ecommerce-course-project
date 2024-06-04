@@ -17,6 +17,7 @@ import { useLoaderData, useLocation } from "react-router-dom";
 const PaginationContainer = () => {
   const { meta } = useLoaderData() as ProductsResponseWithParams;
   const { pageCount, page } = meta.pagination;
+  console.log(meta.pagination);
   const { search, pathname } = useLocation();
 
   const pages = Array.from({ length: pageCount }, (_, index) => {
@@ -25,7 +26,7 @@ const PaginationContainer = () => {
 
   if (pageCount < 2) return null;
 
-  const renderPaginaton = pages.map((pageNumber) => {
+  const renderPagination = pages.map((pageNumber) => {
     const isActive = pageNumber === page;
     const url = constructUrl({ pageNumber, search, pathname });
 
@@ -51,7 +52,7 @@ const PaginationContainer = () => {
         <PaginationItem>
           <PaginationPrevious to={prevUrl} />
         </PaginationItem>
-        {renderPaginaton}
+        {renderPagination}
         <PaginationItem>
           <PaginationNext to={nextUrl} />
         </PaginationItem>
